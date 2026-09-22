@@ -1,0 +1,6 @@
+# build output and release archives
+bin/
+dist/
+
+# local paths of the machine that builds (see build.cmd)
+build.local.cmd
