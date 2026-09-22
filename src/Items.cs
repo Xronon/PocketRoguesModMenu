@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using I2.Loc;
 using UnityEngine;
 
-namespace PocketRoguesCheats
+namespace PocketRoguesModMenu
 {
     /// <summary>
     /// Вид вещей в окне выбора — «Меч», «Шлемы», «Кольца»… — и сами вещи этого вида, от слабых к

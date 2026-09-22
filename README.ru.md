@@ -1,8 +1,8 @@
-# Pocket Rogues Cheats
+# Pocket Rogues Mod Menu
 
-Окно читов прямо в игре для **Pocket Rogues** (Steam, Windows). Это плагин для загрузчика
-модов BepInEx 5: в игре нажимаешь **Insert** — открывается окно с тремя вкладками. Всё
-действует сразу, перезапускать игру не нужно.
+Меню мода прямо в игре для **Pocket Rogues** (Steam, Windows): читы, правка героя и снаряжения
+на ходу и выдача любых вещей. Это плагин для загрузчика модов BepInEx 5: в игре нажимаешь
+**Insert** — открывается окно с тремя вкладками. Всё действует сразу, перезапускать игру не нужно.
 
 English description — [README.md](README.md).
 
@@ -52,11 +52,11 @@ English description — [README.md](README.md).
 Папка игры: в Steam правой кнопкой по Pocket Rogues → «Управление» → «Просмотреть локальные
 файлы». Это папка, где лежит `Pocket Rogues.exe`.
 
-**Полный комплект** (`PocketRoguesCheats-<версия>-full.zip`) — если BepInEx ещё не стоит.
+**Полный комплект** (`PocketRoguesModMenu-<версия>-full.zip`) — если BepInEx ещё не стоит.
 Распакуй всё в папку игры, чтобы `winhttp.dll` и папка `BepInEx` оказались рядом с
 `Pocket Rogues.exe`. Запусти игру и нажми **Insert**.
 
-**Только мод** (`PocketRoguesCheats-<версия>-mod-only.zip`) — если BepInEx 5 (x64) уже
+**Только мод** (`PocketRoguesModMenu-<версия>-mod-only.zip`) — если BepInEx 5 (x64) уже
 установлен. Распакуй в папку игры: плагин ляжет в `BepInEx\plugins\`.
 
 Первый запуск с BepInEx чуть дольше обычного: загрузчик один раз готовит свои файлы.
@@ -65,13 +65,13 @@ English description — [README.md](README.md).
 
 - Поиграть без модов: переименуй `winhttp.dll` в папке игры (например, в `winhttp.dll.off`).
   Вернуть — переименовать обратно.
-- Удалить только мод: удали `BepInEx\plugins\PocketRoguesCheats.dll`.
+- Удалить только мод: удали `BepInEx\plugins\PocketRoguesModMenu.dll`.
 - Удалить всё: удали из папки игры `winhttp.dll`, `doorstop_config.ini`, `.doorstop_version`,
   `changelog.txt` и папку `BepInEx`. Собственные файлы игры мод не меняет никогда.
 
 ## Что нужно знать
 
-- Настройки лежат в `BepInEx\config\pocketrogues.cheats.cfg`: клавиши, пауза при открытом
+- Настройки лежат в `BepInEx\config\pocketrogues.modmenu.cfg`: клавиши, пауза при открытом
   окне, размер и масштаб окна, значения всех читов.
 - Примерно раз в час игра отправляет на сервер разработчика несколько чисел: золото,
   кристаллы, купленные кристаллы, сумму очков навыков и характеристик, число походов, рекорд
@@ -93,7 +93,7 @@ English description — [README.md](README.md).
 ## Сборка из исходников
 
 Нужны Windows с .NET Framework 4 (его компилятор C# входит в Windows), игра и BepInEx 5 в
-папке игры. Запусти `build.cmd`: он соберёт `bin\PocketRoguesCheats.dll` и положит его в
+папке игры. Запусти `build.cmd`: он соберёт `bin\PocketRoguesModMenu.dll` и положит его в
 `BepInEx\plugins`. Если игра стоит не в обычной папке Steam, создай рядом `build.local.cmd`
 со строкой `set "GAME=..."` (и `set "LOADER=..."`, если BepInEx лежит в другом месте) —
 подробности в начале `build.cmd`.

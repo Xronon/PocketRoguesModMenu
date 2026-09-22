@@ -1,8 +1,8 @@
-# Pocket Rogues Cheats
+# Pocket Rogues Mod Menu
 
-An in-game cheat window for **Pocket Rogues** (Steam, Windows). A plugin for the BepInEx 5
-mod loader: press **Insert** in the game and a window with three tabs opens. Everything takes
-effect right away, without restarting the game.
+An in-game mod menu for **Pocket Rogues** (Steam, Windows): cheats, a live hero and gear editor
+and an item spawner. A plugin for the BepInEx 5 mod loader: press **Insert** in the game and a
+window with three tabs opens. Everything takes effect right away, without restarting the game.
 
 Русское описание — в [README.ru.md](README.ru.md).
 
@@ -52,11 +52,11 @@ items, effects and artifacts always come from the game's own translation.
 Find the game folder: in Steam, right-click Pocket Rogues → *Manage* → *Browse local files*.
 It is the folder with `Pocket Rogues.exe`.
 
-**Full package** (`PocketRoguesCheats-<version>-full.zip`) — if you do not have BepInEx yet.
+**Full package** (`PocketRoguesModMenu-<version>-full.zip`) — if you do not have BepInEx yet.
 Extract everything into the game folder, so that `winhttp.dll` and the `BepInEx` folder sit
 next to `Pocket Rogues.exe`. Start the game and press **Insert**.
 
-**Mod only** (`PocketRoguesCheats-<version>-mod-only.zip`) — if BepInEx 5 (x64) is already
+**Mod only** (`PocketRoguesModMenu-<version>-mod-only.zip`) — if BepInEx 5 (x64) is already
 installed. Extract into the game folder: the plugin goes to `BepInEx\plugins\`.
 
 The first start with BepInEx takes a little longer: the loader prepares its files once.
@@ -65,14 +65,14 @@ The first start with BepInEx takes a little longer: the loader prepares its file
 
 - To play without mods for a while: rename `winhttp.dll` in the game folder (for example to
   `winhttp.dll.off`). Rename it back to turn mods on.
-- To remove the mod only: delete `BepInEx\plugins\PocketRoguesCheats.dll`.
+- To remove the mod only: delete `BepInEx\plugins\PocketRoguesModMenu.dll`.
 - To remove everything: delete `winhttp.dll`, `doorstop_config.ini`, `.doorstop_version`,
   `changelog.txt` and the `BepInEx` folder from the game folder. The game's own files are
   never changed.
 
 ## Good to know
 
-- Settings are kept in `BepInEx\config\pocketrogues.cheats.cfg`: hotkeys, pause while the
+- Settings are kept in `BepInEx\config\pocketrogues.modmenu.cfg`: hotkeys, pause while the
   window is open, window size and scale, the values of every cheat.
 - The game sends a few totals to its developer's server about once an hour: gold, crystals,
   bought crystals, the sums of skill points and attributes, number of runs, depth record and
@@ -94,7 +94,7 @@ The first start with BepInEx takes a little longer: the loader prepares its file
 ## Building from source
 
 Needs Windows with .NET Framework 4 (its C# compiler ships with Windows), the game and
-BepInEx 5 installed into the game folder. Run `build.cmd`: it builds `bin\PocketRoguesCheats.dll`
+BepInEx 5 installed into the game folder. Run `build.cmd`: it builds `bin\PocketRoguesModMenu.dll`
 and copies it into `BepInEx\plugins`. If the game is not in the default Steam folder, create
 `build.local.cmd` next to it with `set "GAME=..."` (and `set "LOADER=..."` if BepInEx is
 elsewhere) — see the top of `build.cmd`.

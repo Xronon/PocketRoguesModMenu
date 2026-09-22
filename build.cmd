@@ -1,5 +1,5 @@
 @echo off
-rem Build the Pocket Rogues cheats plugin (BepInEx 5) and copy it into the loader's plugins folder.
+rem Build the Pocket Rogues Mod Menu plugin (BepInEx 5) and copy it into the loader's plugins folder.
 rem Compiler: csc.exe of .NET Framework 4 (ships with Windows, C# 5). References: the game's own
 rem Managed DLLs and BepInEx core. Nothing is downloaded.
 rem
@@ -17,7 +17,7 @@ set "LOADER="
 if exist "%~dp0build.local.cmd" call "%~dp0build.local.cmd"
 if "%LOADER%"=="" set "LOADER=%GAME%\BepInEx"
 set "M=%GAME%\Pocket Rogues_Data\Managed"
-set "OUT=%~dp0bin\PocketRoguesCheats.dll"
+set "OUT=%~dp0bin\PocketRoguesModMenu.dll"
 
 if not exist "%CSC%" goto nocsc
 if not exist "%M%\Assembly-CSharp.dll" goto nogame
@@ -35,7 +35,7 @@ if errorlevel 1 (
   echo [FAIL] build
   exit /b 1
 )
-echo [OK] bin\PocketRoguesCheats.dll
+echo [OK] bin\PocketRoguesModMenu.dll
 
 tasklist /fi "imagename eq Pocket Rogues.exe" | "%SystemRoot%\System32\find.exe" /i "Pocket Rogues.exe" >nul
 if not errorlevel 1 (
@@ -43,7 +43,7 @@ if not errorlevel 1 (
   exit /b 2
 )
 if not exist "%LOADER%\plugins" mkdir "%LOADER%\plugins"
-copy /y "%OUT%" "%LOADER%\plugins\PocketRoguesCheats.dll" >nul
+copy /y "%OUT%" "%LOADER%\plugins\PocketRoguesModMenu.dll" >nul
 if errorlevel 1 (
   echo [FAIL] copy to %LOADER%\plugins
   exit /b 1

@@ -1,4 +1,4 @@
-namespace PocketRoguesCheats
+namespace PocketRoguesModMenu
 {
     /// <summary>
     /// Герой: номер в перечислении игры (CharacterClasses: 0 воин, 1 лучник, 2 маг, 3 охотник,

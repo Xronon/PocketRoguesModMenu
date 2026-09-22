@@ -1,6 +1,6 @@
 # Builds the two release archives into dist\:
-#   PocketRoguesCheats-<version>-full.zip      BepInEx 5.4.23.5 (x64, unmodified) + the plugin
-#   PocketRoguesCheats-<version>-mod-only.zip  the plugin only, for an existing BepInEx 5
+#   PocketRoguesModMenu-<version>-full.zip      BepInEx 5.4.23.5 (x64, unmodified) + the plugin
+#   PocketRoguesModMenu-<version>-mod-only.zip  the plugin only, for an existing BepInEx 5
 #
 #   powershell -ExecutionPolicy Bypass -File package.ps1 -BepInExZip <path to BepInEx_win_x64_5.4.23.5.zip>
 #
@@ -22,8 +22,8 @@ if (-not (Test-Path -LiteralPath $BepInExZip)) { throw "BepInEx archive not foun
 $hash = (Get-FileHash -Algorithm SHA256 -LiteralPath $BepInExZip).Hash.ToLowerInvariant()
 if ($hash -ne $expected) { throw "BepInEx archive SHA-256 mismatch: $hash (expected $expected, BepInEx_win_x64_5.4.23.5.zip)" }
 
-$dll = Join-Path $here 'bin\PocketRoguesCheats.dll'
-if (-not (Test-Path -LiteralPath $dll)) { throw 'bin\PocketRoguesCheats.dll not found - run build.cmd first' }
+$dll = Join-Path $here 'bin\PocketRoguesModMenu.dll'
+if (-not (Test-Path -LiteralPath $dll)) { throw 'bin\PocketRoguesModMenu.dll not found - run build.cmd first' }
 
 # version - the one the mod reports in its log (CheatsPlugin.Version)
 $src = [System.IO.File]::ReadAllText((Join-Path $here 'src\CheatsPlugin.cs'))
@@ -36,9 +36,9 @@ if (-not (Test-Path -LiteralPath $dist)) { New-Item -ItemType Directory -Path $d
 
 # texts for players, next to the game's exe inside the archive
 $docs = @(
-    @{ From = 'README.md';    To = 'Pocket Rogues Cheats - README.txt' },
-    @{ From = 'README.ru.md'; To = 'Pocket Rogues Cheats - README (RU).txt' },
-    @{ From = 'LICENSE';      To = 'Pocket Rogues Cheats - LICENSE.txt' }
+    @{ From = 'README.md';    To = 'Pocket Rogues Mod Menu - README.txt' },
+    @{ From = 'README.ru.md'; To = 'Pocket Rogues Mod Menu - README (RU).txt' },
+    @{ From = 'LICENSE';      To = 'Pocket Rogues Mod Menu - LICENSE.txt' }
 )
 
 # the only BepInEx setting the full package brings: keep the loader's object out of the game's
@@ -66,7 +66,7 @@ function Add-Docs($zip) {
 }
 
 # --- full package -------------------------------------------------------------------------
-$full = Join-Path $dist "PocketRoguesCheats-$version-full.zip"
+$full = Join-Path $dist "PocketRoguesModMenu-$version-full.zip"
 $zip = New-Archive $full
 try {
     $bep = [System.IO.Compression.ZipFile]::OpenRead($BepInExZip)
@@ -81,17 +81,17 @@ try {
             $w.Dispose(); $r.Dispose()
         }
     } finally { $bep.Dispose() }
-    Add-File $zip $dll 'BepInEx/plugins/PocketRoguesCheats.dll'
+    Add-File $zip $dll 'BepInEx/plugins/PocketRoguesModMenu.dll'
     Add-Text $zip $bepCfg 'BepInEx/config/BepInEx.cfg'
     Add-Docs $zip
 } finally { $zip.Dispose() }
 Write-Host "[OK] $full"
 
 # --- mod only -----------------------------------------------------------------------------
-$only = Join-Path $dist "PocketRoguesCheats-$version-mod-only.zip"
+$only = Join-Path $dist "PocketRoguesModMenu-$version-mod-only.zip"
 $zip = New-Archive $only
 try {
-    Add-File $zip $dll 'BepInEx/plugins/PocketRoguesCheats.dll'
+    Add-File $zip $dll 'BepInEx/plugins/PocketRoguesModMenu.dll'
     Add-Docs $zip
 } finally { $zip.Dispose() }
 Write-Host "[OK] $only"

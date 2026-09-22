@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PocketRoguesCheats
+namespace PocketRoguesModMenu
 {
     /// <summary>
     /// Вкладка «Предметы»: что надето (9 слотов), что в сумке, выдача и замена вещей. Выбор вещи —

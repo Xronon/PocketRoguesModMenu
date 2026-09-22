@@ -2,7 +2,7 @@
 
 ## 1.8 — first public release
 
-- Cheat window on **Insert** with three tabs: Cheats, Editor, Items.
+- Mod menu on **Insert** with three tabs: Cheats, Editor, Items.
 - Cheats: god mode (F7), infinite mana (F8), no debuffs; view, run speed, armor and damage
   multipliers; gold and experience up to ×100; scores are not posted to Steam leaderboards by
   default; map, compass, no fog; the property of any of 39 artifacts; optional list of active

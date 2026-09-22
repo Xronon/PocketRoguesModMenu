@@ -3,7 +3,7 @@ using System.Globalization;
 using I2.Loc;
 using UnityEngine;
 
-namespace PocketRoguesCheats
+namespace PocketRoguesModMenu
 {
     /// <summary>
     /// Язык своего текста мода (с 1.8, перевод на английский). Мод идёт за игрой: игра по-русски —

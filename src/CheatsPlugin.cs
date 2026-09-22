@@ -7,7 +7,7 @@ using BepInEx.Configuration;
 using HarmonyLib;
 using UnityEngine;
 
-namespace PocketRoguesCheats
+namespace PocketRoguesModMenu
 {
     /// <summary>
     /// Читы для одиночной игры Pocket Rogues — один мод, одно окно (Insert) с разделами:
@@ -48,10 +48,10 @@ namespace PocketRoguesCheats
     ///   Поэтому окно и клавиши живут на своём объекте с HideAndDontSave, а в BepInEx.cfg —
     ///   HideManagerGameObject = true (версия 1.0 молчала именно из-за этого).
     /// </summary>
-    [BepInPlugin(Guid, "Pocket Rogues Cheats", Version)]
+    [BepInPlugin(Guid, "Pocket Rogues Mod Menu", Version)]
     public sealed class CheatsPlugin : BaseUnityPlugin
     {
-        public const string Guid = "pocketrogues.cheats";
+        public const string Guid = "pocketrogues.modmenu";
         public const string Version = "1.8";
 
         internal static ConfigEntry<bool> God;
@@ -321,7 +321,7 @@ namespace PocketRoguesCheats
             }
             Logger.LogInfo("Patches applied: " + ok + (failed > 0 ? ", failed: " + failed : ""));
             CheatsRunner.Ensure();
-            Logger.LogInfo("Cheats loaded (" + Version + "). " + WindowKey.Value + " — window, "
+            Logger.LogInfo("Mod menu loaded (" + Version + "). " + WindowKey.Value + " — window, "
                            + GodKey.Value + " — god mode, " + ManaKey.Value + " — mana.");
         }
 
@@ -409,7 +409,7 @@ namespace PocketRoguesCheats
         internal static void Ensure()
         {
             if (_instance != null) return;
-            GameObject go = new GameObject("PocketRoguesCheats");
+            GameObject go = new GameObject("PocketRoguesModMenu");
             go.hideFlags = HideFlags.HideAndDontSave;
             DontDestroyOnLoad(go);
             _instance = go.AddComponent<CheatsRunner>();
@@ -674,7 +674,7 @@ namespace PocketRoguesCheats
             Matrix4x4 old = GUI.matrix;
             GUI.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, new Vector3(s, s, 1f));
             Rect r = GUILayout.Window(0x5052, _windowRect, new GUI.WindowFunction(DrawWindow),
-                L.T("Pocket Rogues — читы (", "Pocket Rogues — cheats (") + CheatsPlugin.WindowKey.Value + ")",
+                "Pocket Rogues Mod Menu (" + CheatsPlugin.WindowKey.Value + ")",
                 GUILayout.Width(w), GUILayout.Height(h));
             // размер держим свой: от окна нам нужно только то, куда его перетащили
             r.width = w;

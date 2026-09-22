@@ -4,7 +4,7 @@
 // Артефакты игры: путь в Resources, название и описание свойства — как в самой игре.
 // «Старая карта» и компас сюда не входят: они в разделе «Разведка» (мод 1.1).
 
-namespace PocketRoguesCheats
+namespace PocketRoguesModMenu
 {
     /// <summary>Артефакт игры: чем его свойство включается и как его назвать, если не загрузился.</summary>
     internal sealed class ArtifactInfo
